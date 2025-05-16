@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { OrthographyPage, ProsConsPage, ProsConsStreamPage, TranslatePage, TextToAudioPage, ImageGenerationPage, AudioToTextPage, AssistantPage, ImageTunningPage } from "../pages";
 import { DashboardLayaout } from "../layouts/DashboardLayaout";
 
 
-export default [
+export const menuRoutes = [
   {
     to: "/orthography",
     icon: "fa-solid fa-spell-check",
@@ -76,8 +76,12 @@ export const router = createBrowserRouter([
         children: [
           ...menuRoutes.map( route => ({
             path: route.to,
-            element: route.Component
-          }))
+            element: route.component
+          })),
+          {
+            path: '',
+            element: <Navigate to={ menuRoutes[0].to} />
+          }
         ],
     }
 ])
