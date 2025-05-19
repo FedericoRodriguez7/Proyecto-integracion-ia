@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { OrthographyPage, ProsConsPage, ProsConsStreamPage, TranslatePage, TextToAudioPage, ImageGenerationPage, AudioToTextPage, AssistantPage, ImageTunningPage } from "../pages";
-import { DashboardLayaout } from "../layouts/DashboardLayaout";
+import { DashboardLayout } from "../layouts/DashboardLayout";
 
 
 export const menuRoutes = [
@@ -72,7 +72,7 @@ export const menuRoutes = [
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <DashboardLayaout />,
+        element: <DashboardLayout />,
         children: [
           ...menuRoutes.map( route => ({
             path: route.to,
